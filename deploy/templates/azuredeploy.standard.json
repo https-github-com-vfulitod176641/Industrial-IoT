@@ -690,12 +690,8 @@
                                 "value": "[reference(variables('dpsResourceId'), '2018-01-22').deviceProvisioningHostName]"
                             },
                             {
-                                "key": "PCS_ADLSG2_ACCOUNT",
-                                "value": "[parameters('datalakeName')]"
-                            },
-                            {
-                                "key": "PCS_ADLSG2_ACCOUNT_KEY",
-                                "value": "[listKeys(variables('datalakeResourceId'), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value]"
+                                "key": "PCS_ADLSG2_CONNSTRING",
+                                "value": "[concat('DefaultEndpointsProtocol=https', ';EndpointSuffix=', environment().suffixes.storage, ';AccountName=', parameters('datalakeName'), ';AccountKey=', listKeys(variables('datalakeResourceId'), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value)]"
                             },
                             {
                                 "key": "PCS_SIGNALR_CONNSTRING",

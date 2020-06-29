@@ -38,9 +38,9 @@ namespace Microsoft.Azure.IIoT.Hub.Processor.Runtime {
             () => false);
         /// <summary> Skip events older than </summary>
         public TimeSpan? SkipEventsOlderThan => GetDurationOrNull(kSkipEventsOlderThanKey,
-#if DEBUG
-            () => TimeSpan.FromMinutes(5)); // Skip in debug builds where we always restarted.
-#else
+//#if DEBUG
+//            () => TimeSpan.FromMinutes(5)); // Skip in debug builds where we always restarted.
+//#else
             () => null);
 #endif
         /// <summary> Checkpoint timer </summary>
